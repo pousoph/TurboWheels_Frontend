@@ -44,8 +44,17 @@ export const LoginPage = () => {
                 </div>
 
                 <div className="input-group">
-                    <label htmlFor="password">Contraseña</label>
-                    <input type="password" id="password" placeholder="••••••••" required />
+                    <label htmlFor="password" title="Mínimo 6 caracteres">
+                        Contraseña
+                    </label>
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="••••••••"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    {errors.password && <small className="error-text">{errors.password}</small>}
                 </div>
 
                 <button type="submit" className="login-btn">Ingresar</button>
