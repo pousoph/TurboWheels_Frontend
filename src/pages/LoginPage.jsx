@@ -1,8 +1,9 @@
-import './LoginPage.css';
+import '../styles/LoginPage.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export const LoginPage = () => {
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState({});
@@ -22,13 +23,13 @@ export const LoginPage = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (validate()) {
-            alert('✅ Validado correctamente (simulación)');
+            navigate('/dashboard');
         }
     };
 
     return (
         <div className="login-container">
-            <form className="login-form">
+            <form className="login-form" onSubmit={handleSubmit}>
                 <h2>Iniciar sesión</h2>
 
                 <div className="input-group">
