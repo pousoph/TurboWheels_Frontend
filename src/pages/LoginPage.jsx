@@ -1,6 +1,29 @@
 import '../styles/LoginPage.css';
 
 export const LoginPage = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [errors, setErrors] = useState({});
+
+    const validate = () => {
+        const tempErrors = {};
+        if (!email) tempErrors.email = 'El correo es obligatorio';
+        else if (!/\S+@\S+\.\S+/.test(email)) tempErrors.email = 'Correo no válido';
+
+        if (!password) tempErrors.password = 'La contraseña es obligatoria';
+        else if (password.length < 6) tempErrors.password = 'Mínimo 6 caracteres';
+
+        setErrors(tempErrors);
+        return Object.keys(tempErrors).length === 0;
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (validate()) {
+            alert('✅ Validado correctamente (simulación)');
+        }
+    };
+
     return (
         <div className="login-container">
             <form className="login-form">
