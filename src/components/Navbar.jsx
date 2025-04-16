@@ -1,4 +1,5 @@
 import '../styles/Navbar.css';
+import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
 
 export const Navbar = () => {
@@ -8,7 +9,9 @@ export const Navbar = () => {
                 <img src={logo} alt="TurboWheels Logo" />
             </div>
             <ul className="navbar-links">
-                <button className="login-btn">Iniciar Sesión</button>
+                <Link to="/login">
+                    <button className="login-btn">Iniciar Sesión</button>
+                </Link>
             </ul>
         </nav>
     );
