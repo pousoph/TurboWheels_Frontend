@@ -25,6 +25,7 @@ export const Sidebar = () => {
                 <Link to="/dashboard/liquidacion-definitiva"><ReceiptText size={20} /> Liquidación Definitiva</Link>
                 <Link to="/dashboard/vacaciones"><PlaneTakeoff size={20} /> Vacaciones</Link>
                 <Link to="/dashboard/incapacidades"><Stethoscope size={20} /> Incapacidades y Licencias</Link>
+                <Link to="/" className="logout-link">Cerrar sesión</Link>
             </nav>
         </aside>
     );

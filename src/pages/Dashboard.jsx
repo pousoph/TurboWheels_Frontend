@@ -1,4 +1,5 @@
 import { Sidebar } from '../components/Sidebar.jsx';
+import { DashboardOverview } from '../components/DashboardOverview.jsx';
 import '../styles/Dashboard.css';
 
 export const Dashboard = () => {
@@ -6,8 +7,7 @@ export const Dashboard = () => {
         <div className="dashboard-layout">
             <Sidebar />
             <main className="dashboard-content">
-                <h1>¡Bienvenido al Panel de Nómina de TurboWheels!</h1>
-                <p>Selecciona un módulo desde el menú lateral para comenzar.</p>
+                <DashboardOverview />
             </main>
         </div>
     );
