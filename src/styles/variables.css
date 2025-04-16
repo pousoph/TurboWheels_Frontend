@@ -1,0 +1,18 @@
+:root {
+    --font-title: 'Special Gothic Expanded One', sans-serif;
+    --font-body: 'Manrope', sans-serif;
+
+    --color-background: #0f0f0f;
+    --color-surface: #1a1a1a;
+    --color-primary: #e50914;
+    --color-hover: #ff1a1a;
+    --color-text-primary: #f5f5f5;
+    --color-text-secondary: #aaaaaa;
+    --color-border: #2e2e2e;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+}
