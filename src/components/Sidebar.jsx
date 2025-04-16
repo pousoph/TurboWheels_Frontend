@@ -14,7 +14,9 @@ import {
 export const Sidebar = () => {
     return (
         <aside className="sidebar">
-            <h2>TurboWheels</h2>
+            <div className="sidebar-logo">
+                <img src={logo} alt="TurboWheels Logo" />
+            </div>
             <nav className="sidebar-menu">
                 <Link to="/dashboard/employees"><Users size={20} /> Lista de Empleados</Link>
                 <Link to="/dashboard/nomina"><Wallet size={20} /> Liquidación de Nómina</Link>
