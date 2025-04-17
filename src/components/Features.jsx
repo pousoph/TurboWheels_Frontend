@@ -14,7 +14,7 @@ export const Features = () => {
 
     return (
         <section className="features-section" id="features">
-            <h2 data-aos="fade-up">¿Qué puedes hacer con <span>TurboWheels</span>?</h2>
+            <h2 data-aos="fade-up">¿Qué puedes hacer en la <span>Nomina</span>?</h2>
             <div className="features-grid">
                 <div className="feature-card" data-aos="fade-right">
                     <Users className="feature-icon" />
