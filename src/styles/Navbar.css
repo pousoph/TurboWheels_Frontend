@@ -16,8 +16,11 @@
 }
 
 .navbar-logo img { /*ARREGLAR*/
-    width: 40px;
-    margin-right: 10px;
+    height: 100px;
+    width: auto;
+    margin-left: 5px;
+    object-fit: contain;
+    transform: scale(1.2);
 }
 
 .navbar-links {
