@@ -6,10 +6,10 @@
     z-index: 10;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     padding: 1rem 2rem;
-    background-color: var(--color-surface);
-    border-bottom: 1px solid var(--color-border);
+    background-color: transparent;
+    height: 80px;
 }
 
 .navbar-logo {
@@ -42,6 +42,7 @@
     border: none;
     font-size: 1rem;
     cursor: pointer;
+    margin-right: 60px;
 }
 
 .login-btn {
