@@ -68,6 +68,17 @@
     background-color: var(--color-hover);
 }
 
+.login-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 0;
+    filter: brightness(0.5);
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;

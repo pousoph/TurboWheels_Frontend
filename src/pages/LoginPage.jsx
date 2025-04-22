@@ -1,4 +1,5 @@
 import '../styles/LoginPage.css';
+import video from '../assets/login_background.mp4';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -29,6 +30,10 @@ export const LoginPage = () => {
 
     return (
         <div className="login-container">
+            <video className="login-video" autoPlay loop muted>
+                <source src={video} type="video/mp4" />
+            </video>
+
             <form className="login-form" onSubmit={handleSubmit}>
                 <h2>Iniciar sesión</h2>
 
