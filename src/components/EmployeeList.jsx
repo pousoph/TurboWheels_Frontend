@@ -54,6 +54,7 @@ export const EmployeeList = () => {
                     <tbody>
                     {empleados.map((emp) => (
                         <tr key={emp.id}>
+                            <td>{emp.id}</td>
                             <td>{emp.nombre}</td>
                             <td>{emp.apellido}</td>
                             <td>{emp.documento}</td>
