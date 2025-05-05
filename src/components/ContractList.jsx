@@ -21,6 +21,7 @@ export const ContractList = () => {
         }
     };
 
+    //Prueba de Eliminacion
     const handleDelete = (id) => {
         setSelectedId(id);
         setShowDeleteForm(true);
