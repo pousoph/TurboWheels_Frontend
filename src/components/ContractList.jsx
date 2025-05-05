@@ -62,8 +62,8 @@ export const ContractList = () => {
                     <tbody>
                     {contracts.map(contract => (
                         <tr key={contract.id}>
-                            <td>{contract.empleadoId}</td>
-                            <td>{contract.tipoContrato}</td>
+                            <td>{contract.employeeId}</td>
+                            <td>{contract.tipo}</td>
                             <td>${contract.salario.toLocaleString()}</td>
                             <td>{contract.fechaInicio}</td>
                             <td>{contract.fechaFin}</td>

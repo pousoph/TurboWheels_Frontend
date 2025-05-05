@@ -5,11 +5,11 @@ import { X } from 'lucide-react';
 
 export const ContractForm = ({ onClose, onSuccess }) => {
     const [form, setForm] = useState({
-        tipoContrato: '',
+        tipo: '',
         salario: '',
         fechaInicio: '',
         fechaFin: '',
-        empleadoId: '',
+        employeeId: '',
     });
 
     const handleChange = (e) => {
