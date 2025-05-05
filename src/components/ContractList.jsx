@@ -11,6 +11,7 @@ export const ContractList = () => {
     const [showDeleteForm, setShowDeleteForm] = useState(false);
     const [selectedId, setSelectedId] = useState(null);
 
+    //Cargar Contratos
     const loadContracts = async () => {
         try {
             const data = await getContratos();
