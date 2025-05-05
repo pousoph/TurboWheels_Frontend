@@ -19,7 +19,7 @@ export const Sidebar = () => {
             </div>
             <nav className="sidebar-menu">
                 <Link to="/dashboard/employees"><Users size={20} /> Lista de Empleados</Link>
-                <Link to="/dashboard/nomina"><Wallet size={20} /> Liquidación de Nómina</Link>
+                <Link to="/dashboard/contract"><Wallet size={20} /> Contratos</Link>
                 <Link to="/dashboard/seguridad-social"><Hospital size={20} /> Seguridad Social</Link>
                 <Link to="/dashboard/cesantias"><Package size={20} /> Cesantías</Link>
                 <Link to="/dashboard/liquidacion-definitiva"><ReceiptText size={20} /> Liquidación Definitiva</Link>

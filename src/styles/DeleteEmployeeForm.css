@@ -46,7 +46,7 @@
 }
 
 .delete-btn-form {
-    background-color: #e50914;
+    background-color: #7a1c1e;
     color: white;
     border: none;
     padding: 0.7rem 1.5rem;
@@ -57,7 +57,7 @@
 }
 
 .delete-btn-form:hover {
-    background-color: #c00711;
+    background-color: #7a1c1e;
 }
 
 .close-btn {
