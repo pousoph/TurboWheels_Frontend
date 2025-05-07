@@ -7,12 +7,12 @@ import '../styles/Dashboard.css';
 import { SocialSecurityList } from "../components/SocialSecurityList.jsx";
 import { CesantiaForm } from "../components/forms/CesantiaForm.jsx";
 import { VacationForm } from "../components/forms/VacationForm.jsx";
-import { IncapacityList } from "../components/IncapacityList.jsx";
 import { DeductionList } from "../components/DeductionList.jsx";
 import { EpsList } from "../components/EpsList.jsx";
 import { PayrollList } from "../components/PayrollList.jsx";
 import { BenefitForm } from "../components/forms/BenefitForm.jsx";
 import {FinalSettlementForm} from "../components/forms/FinalSettlementForm.jsx";
+import {IncapacityForm} from "../components/forms/IncapacityForm.jsx";
 
 export const Dashboard = () => {
 
@@ -29,6 +29,9 @@ export const Dashboard = () => {
         alert("Liquidacion creada con éxito");
     }
 
+    const handleIncapacidadSuccess = () => {
+        alert("Incapacidad registrada con éxito");
+    }
     return (
         <div className="dashboard-layout">
             <Sidebar />
@@ -42,7 +45,7 @@ export const Dashboard = () => {
                     <Route path="cesantias" element={<CesantiaForm onSuccess={handleCesantiaSuccess} />} />
                     <Route path="liquidacion-definitiva" element={<FinalSettlementForm onSuccess={handleLiquidacionSuccess} />} />
                     <Route path="vacaciones" element={<VacationForm />} />
-                    <Route path="incapacidades" element={<IncapacityList />} />
+                    <Route path="incapacidades" element={<IncapacityForm onSuccess={handleIncapacidadSuccess} />} />
                     <Route path="deducciones" element={<DeductionList />} />
                     <Route path="eps" element={<EpsList />} />
                     <Route path="nomina" element={<PayrollList />} />
