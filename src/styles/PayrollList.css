@@ -1,0 +1,78 @@
+.payroll-list {
+    padding: 2rem;
+    color: #fff;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.payroll-list h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-title);
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+.kpi-total {
+    font-size: 1.1rem;
+    background-color: #222;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+}
+
+.form-inline {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-inline input {
+    padding: 0.6rem;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background: #111;
+    color: white;
+    font-family: var(--font-body);
+    width: 200px;
+}
+
+.table-wrapper {
+    background-color: #151515;
+    border-radius: 12px;
+    padding: 1rem;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #1c1c1c;
+}
+
+th, td {
+    text-align: left;
+    padding: 0.75rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+}
+
+tbody tr:hover {
+    background-color: #222;
+}
+
+.icon-action {
+    cursor: pointer;
+    color: #aaa;
+    transition: color 0.3s ease;
+}
+
+.icon-action:hover {
+    color: #ff4444;
+}
