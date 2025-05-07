@@ -12,6 +12,12 @@ export const getDeductions = async () => {
     }
 };
 
-export const crearDeductions = async (nuevoDeductions) => {
-    await axios.post(API_URL, nuevoDeductions);
+export const createDeduction = async (nuevoDeduction) => {
+    try {
+        const response = await axios.post(API_URL, nuevoDeduction);
+        return response.data;
+    } catch (error) {
+        console.error('Error al crear la deduccion:', error);
+        throw error;
+    }
 };
