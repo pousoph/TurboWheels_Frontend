@@ -16,7 +16,7 @@ export const createBeneficio = async (nuevoBeneficio) => {
         const response = await axios.post(API_URL, nuevoBeneficio);
         return response.data;
     }catch(error){
-        console.error('Error al obtener los Beneficios: ', error);
+        console.error('Error al crear los Beneficios: ', error);
         throw error;
     }
 }
