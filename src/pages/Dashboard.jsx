@@ -6,25 +6,28 @@ import { Routes, Route } from 'react-router-dom';
 import '../styles/Dashboard.css';
 import { SocialSecurityList } from "../components/SocialSecurityList.jsx";
 import { CesantiaForm } from "../components/forms/CesantiaForm.jsx";
-import { VacationList } from "../components/VacationList.jsx";
+import { VacationForm } from "../components/forms/VacationForm.jsx";
 import { IncapacityList } from "../components/IncapacityList.jsx";
 import { DeductionList } from "../components/DeductionList.jsx";
 import { EpsList } from "../components/EpsList.jsx";
 import { PayrollList } from "../components/PayrollList.jsx";
 import { BenefitForm } from "../components/forms/BenefitForm.jsx";
+import {FinalSettlementForm} from "../components/forms/FinalSettlementForm.jsx";
 
 export const Dashboard = () => {
 
-    // Funciones onSuccess para manejar acción tras creación exitosa
     const handleCesantiaSuccess = () => {
         alert("Cesantía registrada con éxito");
-        // Aquí podrías actualizar la lista o redireccionar si lo deseas
+
     };
 
     const handleBeneficioSuccess = () => {
         alert("Beneficio creado con éxito");
-        // Lógica adicional si la necesitas
+
     };
+    const handleLiquidacionSuccess=()=>{
+        alert("Liquidacion creada con éxito");
+    }
 
     return (
         <div className="dashboard-layout">
@@ -37,8 +40,8 @@ export const Dashboard = () => {
                     <Route path="beneficio" element={<BenefitForm onSuccess={handleBeneficioSuccess} />} />
                     <Route path="social-security" element={<SocialSecurityList />} />
                     <Route path="cesantias" element={<CesantiaForm onSuccess={handleCesantiaSuccess} />} />
-                    {/*<Route path="liquidacion-definitiva" element={< />} />*/}
-                    <Route path="vacaciones" element={<VacationList />} />
+                    <Route path="liquidacion-definitiva" element={<FinalSettlementForm onSuccess={handleLiquidacionSuccess} />} />
+                    <Route path="vacaciones" element={<VacationForm />} />
                     <Route path="incapacidades" element={<IncapacityList />} />
                     <Route path="deducciones" element={<DeductionList />} />
                     <Route path="eps" element={<EpsList />} />
