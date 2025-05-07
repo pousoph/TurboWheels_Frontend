@@ -8,7 +8,8 @@ import {
     Package,
     ReceiptText,
     PlaneTakeoff,
-    Stethoscope
+    Stethoscope,
+    DollarSign
 } from 'lucide-react';
 
 export const Sidebar = () => {
@@ -28,7 +29,7 @@ export const Sidebar = () => {
                 <Link to="/dashboard/incapacidades"><Stethoscope size={20} /> Incapacidades y Licencias</Link>
                 <Link to="/dashboard/deducciones"><Stethoscope size={20} /> Deducciones</Link>
                 <Link to="/dashboard/eps"><Stethoscope size={20} /> EPS</Link>
-                <Link to="/dashboard/nomina"><Stethoscope size={20} /> Nómina</Link>
+                <Link to="/dashboard/nomina"><DollarSign size={20} /> Nómina</Link>
                 <Link to="/" className="logout-link">Cerrar sesión</Link>
             </nav>
         </aside>
