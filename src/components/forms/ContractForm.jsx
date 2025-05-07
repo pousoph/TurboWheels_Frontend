@@ -39,8 +39,8 @@ export const ContractForm = ({ onClose, onSuccess }) => {
                 <label>Tipo de Contrato</label>
                 <input
                     type="text"
-                    name="tipoContrato"
-                    value={form.tipoContrato}
+                    name="tipo"
+                    value={form.tipo}
                     onChange={handleChange}
                     required
                 />
@@ -74,8 +74,8 @@ export const ContractForm = ({ onClose, onSuccess }) => {
                 <label>ID del Empleado</label>
                 <input
                     type="number"
-                    name="empleadoId"
-                    value={form.empleadoId}
+                    name="employeeId"
+                    value={form.employeeId}
                     onChange={handleChange}
                     required
                 />
