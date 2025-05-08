@@ -9,7 +9,12 @@ import {
     ReceiptText,
     PlaneTakeoff,
     Stethoscope,
-    DollarSign
+    BadgeDollarSign,
+    FileUser,
+    HandCoins,
+    Handshake,
+    SquareBottomDashedScissors,
+    HeartHandshake
 } from 'lucide-react';
 
 export const Sidebar = () => {
