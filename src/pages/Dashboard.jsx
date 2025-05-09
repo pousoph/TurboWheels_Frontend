@@ -4,7 +4,6 @@ import { EmployeeList } from '../components/EmployeeList.jsx';
 import { ContractList } from "../components/ContractList.jsx";
 import { Routes, Route } from 'react-router-dom';
 import '../styles/Dashboard.css';
-import { SocialSecurityList } from "../components/SocialSecurityList.jsx";
 import { CesantiaForm } from "../components/forms/CesantiaForm.jsx";
 import { VacationForm } from "../components/forms/VacationForm.jsx";
 import { DeductionList } from "../components/DeductionList.jsx";
@@ -13,6 +12,7 @@ import { PayrollList } from "../components/PayrollList.jsx";
 import { BenefitForm } from "../components/forms/BenefitForm.jsx";
 import {FinalSettlementForm} from "../components/forms/FinalSettlementForm.jsx";
 import {IncapacityForm} from "../components/forms/IncapacityForm.jsx";
+import { SocialSecurityForm } from '../components/forms/SocialSecurityForm.jsx';
 
 export const Dashboard = () => {
 
@@ -32,6 +32,12 @@ export const Dashboard = () => {
     const handleIncapacidadSuccess = () => {
         alert("Incapacidad registrada con éxito");
     }
+    const handleSeguridadSuccess = () => {
+        alert("Seguridad Social registrada con éxito");
+    }
+    const handleVacacionSucces = () => {
+        alert("Vacación registrada con éxito");
+    }
     return (
         <div className="dashboard-layout">
             <Sidebar />
@@ -41,10 +47,10 @@ export const Dashboard = () => {
                     <Route path="employees" element={<EmployeeList />} />
                     <Route path="contract" element={<ContractList />} />
                     <Route path="beneficio" element={<BenefitForm onSuccess={handleBeneficioSuccess} />} />
-                    <Route path="social-security" element={<SocialSecurityList />} />
+                    <Route path="social-security" element={<SocialSecurityForm onSuccess={handleSeguridadSuccess} />} />
                     <Route path="cesantias" element={<CesantiaForm onSuccess={handleCesantiaSuccess} />} />
                     <Route path="liquidacion-definitiva" element={<FinalSettlementForm onSuccess={handleLiquidacionSuccess} />} />
-                    <Route path="vacaciones" element={<VacationForm />} />
+                    <Route path="vacaciones" element={<VacationForm onSuccess={handleVacacionSucces} />} />
                     <Route path="incapacidades" element={<IncapacityForm onSuccess={handleIncapacidadSuccess} />} />
                     <Route path="deducciones" element={<DeductionList />} />
                     <Route path="eps" element={<EpsList />} />
