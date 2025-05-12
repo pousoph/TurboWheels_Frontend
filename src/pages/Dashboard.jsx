@@ -13,6 +13,7 @@ import { BenefitForm } from "../components/forms/BenefitForm.jsx";
 import {FinalSettlementForm} from "../components/forms/FinalSettlementForm.jsx";
 import {IncapacityForm} from "../components/forms/IncapacityForm.jsx";
 import {EpsList} from "../components/EPSList.jsx";
+import {SocialSecurityForm} from "../components/forms/SocialSecurityForm.jsx";
 
 export const Dashboard = () => {
 
@@ -32,6 +33,10 @@ export const Dashboard = () => {
     const handleIncapacidadSuccess = () => {
         alert("Incapacidad registrada con éxito");
     }
+
+    const handleSocialSuccess = () => {
+        alert("Seguridad Social registrada con éxito");
+    }
     return (
         <div className="dashboard-layout">
             <Sidebar />
@@ -41,7 +46,7 @@ export const Dashboard = () => {
                     <Route path="employees" element={<EmployeeList />} />
                     <Route path="contract" element={<ContractList />} />
                     <Route path="beneficio" element={<BenefitForm onSuccess={handleBeneficioSuccess} />} />
-                    <Route path="social-security" element={<SocialSecurityList />} />
+                    <Route path="social-security" element={<SocialSecurityForm onSuccess={handleSocialSuccess} />} />
                     <Route path="cesantias" element={<CesantiaForm onSuccess={handleCesantiaSuccess} />} />
                     <Route path="liquidacion-definitiva" element={<FinalSettlementForm onSuccess={handleLiquidacionSuccess} />} />
                     <Route path="vacaciones" element={<VacationForm />} />
