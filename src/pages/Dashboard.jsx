@@ -12,7 +12,7 @@ import { PayrollList } from "../components/PayrollList.jsx";
 import { BenefitForm } from "../components/forms/BenefitForm.jsx";
 import {FinalSettlementForm} from "../components/forms/FinalSettlementForm.jsx";
 import {IncapacityForm} from "../components/forms/IncapacityForm.jsx";
-import EpsList from "../components/EPSList.jsx";
+import {EpsList} from "../components/EPSList.jsx";
 
 export const Dashboard = () => {
 

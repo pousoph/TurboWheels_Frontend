@@ -2,7 +2,7 @@ import '../../styles/CreateForm.css'
 import {useState} from "react";
 import {createIncapacidad} from "../../services/incapacityService.js";
 
-export const IncapacityForm =({onSuccess})=>{
+export const IncapacityForm =({onSuccess})=>{/**/
 
     const[form, setForm] = useState({
         epsId:'',
