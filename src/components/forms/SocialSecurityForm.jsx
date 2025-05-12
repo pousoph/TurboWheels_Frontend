@@ -1,13 +1,14 @@
 import '../../styles/CreateForm.css'
-import {useState} from "react";
-import {registrarVacacion} from '../../services/vacationService.js';
+import { useState } from 'react';
+import {registrarSeguridad} from '../../services/socialsecService.js';
 
-export const VacationForm =({onSuccess})=>{
+export const SocialSecurityForm =({onSuccess})=>{
 
     const[form, setForm] = useState({
         payrollId: '',
-        dias:'',
-        disfrute:''
+        pension:'',
+        salud:'',
+        arl:''
     });
 
     const handleChange = (e) => {
@@ -17,17 +18,18 @@ export const VacationForm =({onSuccess})=>{
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{
-            await registrarVacacion(form);
+            await registrarSeguridad(form);
             onSuccess();
         }catch(error){
-            console.error('Error al registrar Vacación: ',error);
+            console.error('Error al registrar Seguridad Social: ',error);
         }
     }
     return (
         <form className="form" onSubmit={handleSubmit}>
             <div className="form-header">
-                <h3>Registrar Vacaciones</h3>
+                <h3>Registrar Seguridad Social</h3>
             </div>
+
             <label>Id Nomina</label>
             <input
                 type="number"
@@ -36,24 +38,32 @@ export const VacationForm =({onSuccess})=>{
                 onChange={handleChange}
                 required
             />
-            <label>Días</label>
+            <label>Pension</label>
             <input
                 type="number"
-                name="dias"
-                value={form.dias}
+                name="pension"
+                value={form.pension}
                 onChange={handleChange}
                 required
             />
 
-            <label>Disfrute</label>
+            <label>Salud</label>
             <input
-                type="text"
-                name="disfrute"
-                value={form.disfrute}
+                type="number"
+                name="salud"
+                value={form.salud}
                 onChange={handleChange}
                 required
             />
-            <button type="submit" className="submit-btn">Registrar Vacación</button>
+            <label>ARL</label>
+            <input
+                type="number"
+                name="arl"
+                value={form.arl}
+                onChange={handleChange}
+                required
+            />
+            <button type="submit" className="submit-btn">Registrar Seguridad Social</button>
         </form>
     );
 };
