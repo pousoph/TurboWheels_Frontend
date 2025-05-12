@@ -8,11 +8,11 @@ import { SocialSecurityList } from "../components/SocialSecurityList.jsx";
 import { CesantiaForm } from "../components/forms/CesantiaForm.jsx";
 import { VacationForm } from "../components/forms/VacationForm.jsx";
 import { DeductionList } from "../components/DeductionList.jsx";
-import { EpsList } from "../components/EpsList.jsx";
 import { PayrollList } from "../components/PayrollList.jsx";
 import { BenefitForm } from "../components/forms/BenefitForm.jsx";
 import {FinalSettlementForm} from "../components/forms/FinalSettlementForm.jsx";
 import {IncapacityForm} from "../components/forms/IncapacityForm.jsx";
+import EpsList from "../components/EPSList.jsx";
 
 export const Dashboard = () => {
 
