@@ -48,7 +48,11 @@ export const EmployeeList = () => {
                         <th>Id</th>
                         <th>Nombre</th>
                         <th>Apellido</th>
-                        <th>Documento</th>
+                        <th>Tipo de documento</th>
+                        <th>Numero de documento</th>
+                        <th>Fecha nacimiento</th>
+                        <th>Sexo</th>
+                        <th>Teléfono</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -57,7 +61,11 @@ export const EmployeeList = () => {
                             <td>{emp.id}</td>
                             <td>{emp.nombre}</td>
                             <td>{emp.apellido}</td>
+                            <td>{emp.tipoDocumento}</td>
                             <td>{emp.documento}</td>
+                            <td>{emp.fechaNacimiento}</td>
+                            <td>{emp.sexo}</td>
+                            <td>{emp.telefono}</td>
                         </tr>
                     ))}
                     </tbody>
