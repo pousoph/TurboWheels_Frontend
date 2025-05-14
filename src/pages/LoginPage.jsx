@@ -1,54 +1,71 @@
-import { useState } from 'react';
-import { loginUser } from '../services/userService.js';
 import '../styles/LoginPage.css';
+import video from '../assets/login_background.mp4';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export const LoginPage = () => {
-    const [email, setEmail] = useState('');
-    const [pass, setPass] = useState('');
     const navigate = useNavigate();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [errors, setErrors] = useState({});
 
-    const handleSubmit = async (e) => {
+    const validate = () => {
+        const tempErrors = {};
+        if (!email) tempErrors.email = 'El correo es obligatorio';
+        else if (!/\S+@\S+\.\S+/.test(email)) tempErrors.email = 'Correo no válido';
+
+        if (!password) tempErrors.password = 'La contraseña es obligatoria';
+        else if (password.length < 6) tempErrors.password = 'Mínimo 6 caracteres';
+
+        setErrors(tempErrors);
+        return Object.keys(tempErrors).length === 0;
+    };
+
+    const handleSubmit = (e) => {
         e.preventDefault();
-        try {
-            const user = await loginUser(email, pass);
-
-            if (email === 'admin@turbowheels.com' && pass === '*x-K97S2') {
-                alert("Bienvenido Administrador");
-                navigate('/dashboard');
-            } else {
-                alert("Bienvenido Empleado");
-                navigate('/usuario/' + user.id);
-            }
-        } catch (error) {
-            console.error("Error en login:", error);
-            alert("Credenciales incorrectas");
+        if (validate()) {
+            navigate('/dashboard');
         }
     };
 
     return (
         <div className="login-container">
+            <video className="login-video" autoPlay loop muted>
+                <source src={video} type="video/mp4" />
+            </video>
+
             <form className="login-form" onSubmit={handleSubmit}>
-                <h2>Iniciar Sesión</h2>
-                <input
-                    type="email"
-                    placeholder="Correo electrónico"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
-                <input
-                    type="password"
-                    placeholder="Contraseña"
-                    value={pass}
-                    onChange={(e) => setPass(e.target.value)}
-                    required
-                />
-                <button type="submit">Ingresar</button>
-                <p className="register-text">
-                    ¿No tienes cuenta?
-                    <span className="register-link" onClick={() => navigate('/registro')}> Regístrate</span>
-                </p>
+                <h2>Iniciar sesión</h2>
+
+                <div className="input-group">
+                    <label htmlFor="email" title="Tu correo corporativo o personal registrado">
+                        Correo electrónico
+                    </label>
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="correo@empresa.com"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                    {errors.email && <small className="error-text">{errors.email}</small>}
+                </div>
+
+                <div className="input-group">
+                    <label htmlFor="password" title="Mínimo 6 caracteres">
+                        Contraseña
+                    </label>
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="••••••••"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    {errors.password && <small className="error-text">{errors.password}</small>}
+                </div>
+
+                <button type="submit" className="login-btn">Ingresar</button>
             </form>
         </div>
     );

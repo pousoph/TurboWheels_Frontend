@@ -1,18 +1,27 @@
-import axios from 'axios';
+// src/services/userService.js
+import axios from "axios";
 
-const API_URL = 'http://localhost:8082/api/usuarios';
+const API_URL = "http://localhost:8082/api/usuarios";
 
-export const loginUser = async (email, pass) => {
-    const response = await axios.post(`${API_URL}/login`, null, {
-        params: { email, pass }
+const login = async (email, pass) => {
+    const response = await fetch(`${API_URL}/login?email=${email}&pass=${pass}`, {
+        method: "POST"
     });
+
+    if (!response.ok) {
+        throw new Error("Login failed");
+    }
+
+    return response.json();
+};
+
+export const registerUser = async (userData) => {
+    const response = await axios.post(API_URL, userData);
     return response.data;
 };
-export const crearUsuario = async (usuario) => {
-    const response = await axios.post(API_URL, usuario);
-    return response.data;
-}
-export const getUsuarioPorId = async (id) => {
-    const res = await axios.get(`${API_URL}/${id}`);
-    return res.data;
+
+const userService = {
+    login,
 };
+
+export default userService;
