@@ -12,7 +12,6 @@ export const getLiquidaciones = async () => {
     }
 };
 
-export const crearLiquidacion = async (nuevaLiquidacion) => {
-    await axios.post(API_URL, nuevaLiquidacion);
+export const crearLiquidacion = async ({ id, fechaFinal }) => {
+    await axios.post(`${API_URL}/${id}`, { fechaFinal });
 };
-
