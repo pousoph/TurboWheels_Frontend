@@ -73,12 +73,9 @@ export const PayrollList = () => {
                     <thead>
                     <tr>
                         <th>ID Nómina</th>
-                        <th>Contrato</th>
+                        <th>Id Contrato</th>
                         <th>Fecha</th>
-                        <th>Salario Base</th>
-                        <th>Deducciones</th>
-                        <th>Prestaciones</th>
-                        <th>Total</th>
+                        <th>Total Pagado</th>
                         <th>Acciones</th>
                     </tr>
                     </thead>
@@ -87,11 +84,8 @@ export const PayrollList = () => {
                         <tr key={p.id}>
                             <td>{p.id}</td>
                             <td>{p.contractId}</td>
-                            <td>{p.fechaGeneracion}</td>
-                            <td>${p.salarioBase}</td>
-                            <td>${p.deducciones}</td>
-                            <td>${p.prestaciones}</td>
-                            <td><strong>${p.totalPagado}</strong></td>
+                            <td>{p.fecha}</td>
+                            <td>${p.totalPagado}</td>
                             <td>
                                 <Trash2
                                     className="icon-action"
