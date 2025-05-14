@@ -13,10 +13,10 @@ export const FinalSettlementForm = ({ onClose, onSuccess }) => {
         e.preventDefault();
         try {
             await crearLiquidacion(form);
-            onSuccess(); // recarga lista
-            onClose();   // cierra modal
+            onSuccess();
+            onClose();
         } catch (err) {
-            console.error('Error al crear liquidacion:', err);
+            console.error('Error al crear liquidación:', err);
         }
     };
 
