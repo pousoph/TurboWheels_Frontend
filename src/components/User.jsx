@@ -1,4 +1,4 @@
-import '../styles/User.css';
+import '../styles/UserDashboard.css';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo-intento.png';
 import {

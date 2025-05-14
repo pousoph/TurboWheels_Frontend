@@ -1,0 +1,30 @@
+.usuario-dashboard {
+    padding: 2rem;
+    background-color: #0d0d0d;
+    color: white;
+    min-height: 100vh;
+}
+
+.usuario-dashboard h2 {
+    color: #e50914;
+    margin-bottom: 2rem;
+    font-family: var(--font-title);
+}
+
+.payroll-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.payroll-card {
+    background-color: #1a1a1a;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+    font-family: var(--font-body);
+}
+
+.payroll-card p {
+    margin: 0.3rem 0;
+}

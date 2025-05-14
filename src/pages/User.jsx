@@ -1,5 +1,5 @@
 import { Sidebar } from '../components/Sidebar.jsx';
-import '../styles/User.css';
+import '../styles/UserDashboard.css';
 
 export const User = () => {
     return (
