@@ -12,7 +12,7 @@ export const EPSForm = ({ onClose, onSuccess }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await createEPS(form);
+            await createEPS(form.nombre);
             onSuccess(); // recarga lista
             onClose();   // cierra modal
         } catch (err) {
