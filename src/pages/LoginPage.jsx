@@ -1,71 +1,71 @@
-import '../styles/LoginPage.css';
-import video from '../assets/login_background.mp4';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+// src/pages/LoginPage.jsx
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Mail, Lock } from "lucide-react";
+import "../styles/LoginPage.css";
+import userService from "../services/userService";
 
 export const LoginPage = () => {
     const navigate = useNavigate();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [errors, setErrors] = useState({});
+    const [email, setEmail] = useState("");
+    const [pass, setPass] = useState("");
+    const [error, setError] = useState("");
 
-    const validate = () => {
-        const tempErrors = {};
-        if (!email) tempErrors.email = 'El correo es obligatorio';
-        else if (!/\S+@\S+\.\S+/.test(email)) tempErrors.email = 'Correo no válido';
-
-        if (!password) tempErrors.password = 'La contraseña es obligatoria';
-        else if (password.length < 6) tempErrors.password = 'Mínimo 6 caracteres';
-
-        setErrors(tempErrors);
-        return Object.keys(tempErrors).length === 0;
-    };
-
-    const handleSubmit = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
-        if (validate()) {
-            navigate('/dashboard');
+        setError("");
+
+        // Caso Admin (Hardcoded)
+        if (email === "admin@turbowheels.com" && pass === "admin123") {
+            navigate("/dashboard");
+            return;
+        }
+
+        // Caso Usuario normal
+        try {
+            const user = await userService.login(email, pass);
+            localStorage.setItem("usuario", JSON.stringify(user)); // <--- clave corregida
+            navigate(`/usuario/${user.id}`);
+        } catch (err) {
+            setError("Correo o contraseña inválidos");
         }
     };
 
     return (
         <div className="login-container">
-            <video className="login-video" autoPlay loop muted>
-                <source src={video} type="video/mp4" />
-            </video>
-
-            <form className="login-form" onSubmit={handleSubmit}>
-                <h2>Iniciar sesión</h2>
+            <form className="login-form" onSubmit={handleLogin}>
+                <h2 className="login-title">Iniciar Sesión</h2>
 
                 <div className="input-group">
-                    <label htmlFor="email" title="Tu correo corporativo o personal registrado">
-                        Correo electrónico
-                    </label>
+                    <Mail className="icon" />
                     <input
                         type="email"
-                        id="email"
-                        placeholder="correo@empresa.com"
+                        placeholder="Correo electrónico"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        required
                     />
-                    {errors.email && <small className="error-text">{errors.email}</small>}
                 </div>
 
                 <div className="input-group">
-                    <label htmlFor="password" title="Mínimo 6 caracteres">
-                        Contraseña
-                    </label>
+                    <Lock className="icon" />
                     <input
                         type="password"
-                        id="password"
-                        placeholder="••••••••"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="Contraseña"
+                        value={pass}
+                        onChange={(e) => setPass(e.target.value)}
+                        required
                     />
-                    {errors.password && <small className="error-text">{errors.password}</small>}
                 </div>
 
-                <button type="submit" className="login-btn">Ingresar</button>
+                {error && <p className="error">{error}</p>}
+
+                <button type="submit" className="btn-login">Entrar</button>
+
+                <p className="register-link">
+                    ¿No tienes cuenta?{" "}
+                    <span onClick={() => navigate("/registro")}>Regístrate</span>
+                </p>
             </form>
         </div>
     );

@@ -5,7 +5,7 @@ import { registerUser } from "../services/userService";
 import "../styles/Register.css";
 import { User, Mail, Lock, Calendar, IdCard } from "lucide-react";
 
-const Register = () => {
+export const Register = () => {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         nombre: "",
@@ -128,5 +128,3 @@ const Register = () => {
         </div>
     );
 };
-
-export default Register;

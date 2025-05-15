@@ -1,0 +1,118 @@
+.dashboard-overview {
+    padding: 2rem;
+    background-color: #121212;
+    min-height: 100vh;
+    color: white;
+    animation: fadeIn 0.6s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.dashboard-overview h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #e50914;
+    margin-bottom: 0.25rem;
+    text-align: center;
+}
+
+.dashboard-overview p {
+    color: #aaa;
+    margin-bottom: 2rem;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+/* Mejora la distribución horizontal */
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    max-width: 1400px;
+    box-sizing: border-box;
+    padding: 0 1rem;
+}
+
+/* Card base */
+.employee-info-card {
+    background-color: #1a1a1a;
+    border-radius: 1rem;
+    padding: 2rem;
+    color: white;
+    box-shadow: 0 0 12px rgba(229, 9, 20, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.employee-info-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 18px rgba(229, 9, 20, 0.4);
+}
+
+.employee-info-card h2 {
+    color: #e50914;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.employee-info-card ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.employee-info-card li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.75rem;
+    color: #ddd;
+    font-size: 0.95rem;
+    word-break: break-word;
+}
+
+.employee-info-card li svg {
+    color: #e50914;
+    flex-shrink: 0;
+}
+
+/* Animación fadeIn */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive para tablets y móviles */
+@media (max-width: 768px) {
+    .dashboard-overview {
+        padding: 1rem;
+        align-items: center;
+    }
+
+    .grid-cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0;
+    }
+
+    .employee-info-card {
+        padding: 1.5rem;
+    }
+
+    .employee-info-card h2 {
+        font-size: 1.1rem;
+    }
+
+    .employee-info-card li {
+        font-size: 0.9rem;
+    }
+}
