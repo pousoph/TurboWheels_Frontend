@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react';
 import { getContratos } from '../services/contractService.js';
 import {ContractForm} from "./forms/ContractForm.jsx";
 import {DeleteContractForm} from "./forms/DeleteContractForm.jsx";
-import { Plus, RefreshCcw, Trash2, FileSignature } from "lucide-react";
+import {Plus, RefreshCcw, Trash2, FileSignature, FileDown} from "lucide-react";
+import {descargarPDFContratos} from "../services/pdfService.js";
 
 export const ContractList = () => {
     const [contracts, setContracts] = useState([]);
@@ -44,6 +45,9 @@ export const ContractList = () => {
                     </button>
                     <button className="delete-btn" onClick={() => setShowDeleteForm(true)}>
                         <Trash2 size={18} /> Eliminar
+                    </button>
+                    <button className="pdf-btn" onClick={descargarPDFContratos}>
+                        <FileDown size={18} /> Exportar PDF
                     </button>
                 </div>
             </div>

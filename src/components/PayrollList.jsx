@@ -6,7 +6,8 @@ import {
     createPayroll
 } from '../services/payrollService.js';
 import { DeletePayrollForm } from './forms/DeletePayrollForm.jsx';
-import { Plus, Trash2, DollarSign } from 'lucide-react';
+import {Plus, Trash2, DollarSign, FileDown} from 'lucide-react';
+import {descargarPDFNomina} from "../services/pdfService.js";
 
 export const PayrollList = () => {
     const [payrolls, setPayrolls] = useState([]);
@@ -54,6 +55,7 @@ export const PayrollList = () => {
                     <span>Total Pagado:</span>
                     <strong>${total.toLocaleString()}</strong>
                 </div>
+                <br/>
             </div>
 
             <div className="form-inline">
@@ -65,6 +67,9 @@ export const PayrollList = () => {
                 />
                 <button className="add-btn" onClick={handleCreate}>
                     <Plus size={18} /> Calcular Nómina
+                </button>
+                <button className="pdf-btn" onClick={descargarPDFNomina}>
+                    <FileDown size={18} /> Exportar PDF
                 </button>
             </div>
 

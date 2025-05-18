@@ -13,6 +13,7 @@ import { EpsList } from "../components/EpsList.jsx";
 import { PayrollList } from "../components/PayrollList.jsx";
 import { BenefitForm } from "../components/forms/BenefitForm.jsx";
 import {FinalSettlementForm} from "../components/forms/FinalSettlementForm.jsx";
+import {FinalSettlementList} from "../components/FinalSettlementList.jsx";
 
 export const Dashboard = () => {
 
@@ -44,7 +45,7 @@ export const Dashboard = () => {
                     <Route path="beneficio" element={<BenefitForm onSuccess={handleBeneficioSuccess} />} />
                     <Route path="social-security" element={<SocialSecurityList />} />
                     <Route path="cesantias" element={<CesantiaForm onSuccess={handleCesantiaSuccess} />} />
-                    <Route path="liquidacion-definitiva" element={<FinalSettlementForm onSuccess={handleLiquidacionSuccess} />} />
+                    <Route path="liquidacion-definitiva" element={<FinalSettlementList />} />
                     <Route path="vacaciones" element={<VacationForm />} />
                     <Route path="incapacidades" element={<IncapacityForm onSuccess={handleIncapacitySuccess} />} />
                     <Route path="deducciones" element={<DeductionList />} />

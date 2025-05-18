@@ -4,7 +4,8 @@ import { getEmpleados } from '../services/empleadoService.js';
 import { EmployeeForm } from './forms/EmployeeForm.jsx';
 import { DeleteEmployeeForm } from './forms/DeleteEmployeeForm.jsx';
 import { UpdateEmployeeForm } from './forms/UpdateEmployeeForm.jsx';
-import { Plus, RefreshCcw, Trash2, Users } from "lucide-react";
+import { descargarPDFEmpleados } from '../services/pdfService';
+import { Plus, RefreshCcw, Trash2, Users, FileDown } from "lucide-react";
 
 export const EmployeeList = () => {
     const [empleados, setEmpleados] = useState([]);
@@ -38,6 +39,9 @@ export const EmployeeList = () => {
                     </button>
                     <button className="delete-btn" onClick={() => setMostrarFormularioEliminar(true)}>
                         <Trash2 size={18} /> Eliminar
+                    </button>
+                    <button className="pdf-btn" onClick={descargarPDFEmpleados}>
+                        <FileDown size={18} /> Exportar PDF
                     </button>
                 </div>
             </div>

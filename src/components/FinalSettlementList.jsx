@@ -2,7 +2,8 @@ import '../styles/EmployeeList.css'
 import { useState, useEffect } from 'react';
 import { getLiquidaciones } from '../services/finalSettlementService.js';
 import { FinalSettlementForm } from './forms/FinalSettlementForm.jsx';
-import { Plus, RefreshCcw, Trash2, Users } from "lucide-react";
+import {FileDown, Plus, RefreshCcw, Trash2, Users} from "lucide-react";
+import {descargarPDFContratos, descargarPDFNomina} from "../services/pdfService.js";
 
 export const FinalSettlementList = () => {
     const [liquidaciones, setLiquidaciones] = useState([]);

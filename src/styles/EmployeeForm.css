@@ -1,29 +1,12 @@
-/* Fondo oscuro que cubre toda la pantalla */
-.modal-backdrop {
+.modal-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: grid;
+    place-items: center;
     z-index: 1000;
 }
 
-/* Modal centrado */
-.modal {
-    background-color: #1a1a1a;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);
-    max-width: 400px;
-    width: 100%;
-    z-index: 1001;
-    color: white;
-    animation: aparecer 0.3s ease-out;
-}
 
 @keyframes aparecer {
     from {
@@ -77,4 +60,36 @@
     color: white;
     border-radius: 6px;
     cursor: pointer;
+}
+.formulario-empleado select {
+    width: 100%;
+    padding: 0.6rem;
+    border-radius: 6px;
+    border: none;
+    background-color: #2a2a2a;
+    color: #fff;
+    appearance: none;
+    font-family: inherit;
+}
+
+.formulario-empleado select:focus {
+    outline: 2px solid #e50914;
+}
+.formulario-empleado select {
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20fill%3D%22white%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M5.23%207.21a.75.75%200%200%201%201.06.02L10%2010.94l3.71-3.71a.75.75%200%201%201%201.06%201.06l-4.24%204.24a.75.75%200%200%201-1.06%200L5.21%208.29a.75.75%200%200%201%20.02-1.08z%22%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem;
+    padding-right: 2rem;
+}
+.formulario-empleado {
+    background-color: #1a1a1a;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px;
+    color: white;
+    font-family: var(--font-body);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    position: relative;
 }

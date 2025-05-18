@@ -66,3 +66,7 @@
     place-items: center;
     z-index: 1000;
 }
+.pdf-btn:hover {
+    background-color: #e50914;
+    color: white;
+}

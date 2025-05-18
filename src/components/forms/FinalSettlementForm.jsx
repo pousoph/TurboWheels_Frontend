@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import '../../styles/EmployeeForm.css';
 import { crearLiquidacion } from "../../services/finalSettlementService.js";
+import {X} from "lucide-react";
 
 export const FinalSettlementForm = ({ onClose, onSuccess }) => {
     const [form, setForm] = useState({ id: '', fechaFinal: '' });
@@ -21,38 +22,39 @@ export const FinalSettlementForm = ({ onClose, onSuccess }) => {
     };
 
     return (
-        <div className="modal-backdrop">
-            <div className="modal">
-                <h2>Agregar liquidación</h2>
-                <form onSubmit={handleSubmit} className="formulario-empleado">
-                    <div className="campo">
-                        <label>ID Empleado</label>
-                        <input
-                            type="number"
-                            name="id"
-                            placeholder="ID del empleado"
-                            value={form.id}
-                            onChange={handleChange}
-                            required
-                        />
-                    </div>
-                    <div className="campo">
-                        <label>Fecha Final</label>
-                        <input
-                            type="date"
-                            name="fechaFinal"
-                            placeholder="Fecha final"
-                            value={form.fechaFinal}
-                            onChange={handleChange}
-                            required
-                        />
-                    </div>
-                    <div className="modal-buttons">
+        <div className="modal-overlay">
+            <form onSubmit={handleSubmit} className="formulario-empleado">
+                <div className="form-header">
+                    <h3>Asignar Liquidación</h3>
+                    <X onClick={onClose} className="close-icon" />
+                </div>
+                <div className="campo">
+                    <label>ID Empleado</label>
+                    <input
+                        type="number"
+                        name="id"
+                        placeholder="ID del empleado"
+                        value={form.id}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+                <div className="campo">
+                    <label>Fecha Final</label>
+                    <input
+                        type="date"
+                        name="fechaFinal"
+                        placeholder="Fecha final"
+                        value={form.fechaFinal}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+                <div className="modal-buttons">
                         <button type="submit" className="btn-guardar">Guardar</button>
                         <button type="button" className="btn-cancelar" onClick={onClose}>Cancelar</button>
-                    </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     );
 };

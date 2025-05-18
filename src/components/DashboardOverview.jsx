@@ -1,35 +1,12 @@
 import '../styles/DashboardOverview.css';
 import { Users, FileText, BadgeDollarSign, AlertTriangle, Bell } from 'lucide-react';
-import React, {useEffect, useState} from "react";
-import {useNavigate, useParams} from "react-router-dom";
 
 export const DashboardOverview = () => {
-    const { id } = useParams();
-    const navigate = useNavigate();
-    const [usuario, setUsuario] = useState(null);
-
-    useEffect(() => {
-        const storedUser = localStorage.getItem("usuario");
-
-        if (storedUser) {
-            const userData = JSON.parse(storedUser);
-            if (userData.id === id) {
-                setUsuario(userData);
-            } else {
-                navigate("/login");
-            }
-        } else {
-            navigate("/login");
-        }
-    }, [id, navigate]);
-
 
     return (
         <div className="dashboard-overview">
-            <h1 className="text-2xl font-bold text-red-600">
-                Bienvenido, {usuario.nombre}
-            </h1>
             <h1>Resumen general de Nómina</h1>
+            <br/>
 
             <div className="stats-cards">
                 <div className="stat-card">
