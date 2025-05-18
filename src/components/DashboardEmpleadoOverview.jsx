@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import {
     User, Mail, Phone, Calendar, MapPin,
-    FileText, BadgeDollarSign, FileSignature
+    FileText, BadgeDollarSign, FileSignature, Download
 } from 'lucide-react';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 import '../styles/DashboardOverviewEmp.css';
 
 export const DashboardUsuarioOverview = () => {
@@ -39,7 +41,6 @@ export const DashboardUsuarioOverview = () => {
                 if (contratoEmpleado) {
                     setContrato(contratoEmpleado);
 
-                    // Ahora que tienes el contrato, puedes buscar la nómina
                     const resPayrolls = await fetch("http://localhost:8082/api/payrolls");
                     const payrolls = await resPayrolls.json();
 
@@ -57,6 +58,33 @@ export const DashboardUsuarioOverview = () => {
         cargarDatos();
     }, []);
 
+    const generarPDFDesdeDatos = () => {
+        const doc = new jsPDF();
+        doc.text('Resumen de Información del Empleado', 14, 20);
+
+        doc.autoTable({
+            startY: 30,
+            head: [['Campo', 'Valor']],
+            body: [
+                ['Nombre', `${empleado?.nombre} ${empleado?.apellido}`],
+                ['Documento', `${empleado?.tipoDocumento} ${empleado?.documento}`],
+                ['Fecha Nacimiento', empleado?.fechaNacimiento],
+                ['Teléfono', empleado?.telefono],
+                ['Dirección', empleado?.direccion],
+                ['Sexo', empleado?.sexo],
+                ['Tipo Contrato', contrato?.tipo || 'No disponible'],
+                ['Fecha Inicio', contrato?.fechaInicio || 'No disponible'],
+                ['Fecha Fin', contrato?.fechaFin || 'No disponible'],
+                ['Salario', contrato ? `$${contrato.salario.toLocaleString()}` : 'No disponible'],
+                ['ID Contrato', contrato?.id || 'No disponible'],
+                ['Pago Último', payroll ? `$${payroll.totalPagado.toLocaleString()}` : 'No disponible'],
+                ['Fecha Pago', payroll?.fecha || 'No disponible'],
+            ]
+        });
+
+        doc.save(`resumen_${empleado?.nombre}_${empleado?.apellido}.pdf`);
+    };
+
     if (error) return <div className="dashboard-overview"><p>{error}</p></div>;
     if (!empleado) return <div className="dashboard-overview"><p>Cargando datos del empleado...</p></div>;
 
@@ -64,6 +92,10 @@ export const DashboardUsuarioOverview = () => {
         <div className="dashboard-overview">
             <h1>¡Bienvenido, {empleado.nombre}!</h1>
             <p>Este es tu panel donde puedes revisar tu información personal, contractual y de nómina.</p>
+
+            <button className="pdf-button" onClick={generarPDFDesdeDatos}>
+                <Download size={18} /> Descargar PDF
+            </button>
 
             <div className="grid-cards">
                 <div className="employee-info-card">
