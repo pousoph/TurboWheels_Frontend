@@ -14,6 +14,7 @@ import { PayrollList } from "../components/PayrollList.jsx";
 import { BenefitForm } from "../components/forms/BenefitForm.jsx";
 import {FinalSettlementForm} from "../components/forms/FinalSettlementForm.jsx";
 import {FinalSettlementList} from "../components/FinalSettlementList.jsx";
+import {SocialSecurityForm} from "../components/forms/SocialSecurityForm.jsx";
 
 export const Dashboard = () => {
 
@@ -26,12 +27,15 @@ export const Dashboard = () => {
         alert("Beneficio creado con éxito");
 
     };
-    const handleLiquidacionSuccess=()=>{
-        alert("Liquidacion creada con éxito");
+    const handleSocialSuccess=()=>{
+        alert("Seguridad social creada con éxito");
     }
 
     const handleIncapacitySuccess=()=>{
-        alert("Liquidacion creada con éxito");
+        alert("Incapacidad creada con éxito");
+    }
+    const handleVactionSuccess=()=>{
+        alert("Vacación registrada con éxito");
     }
 
     return (
@@ -43,10 +47,10 @@ export const Dashboard = () => {
                     <Route path="employees" element={<EmployeeList />} />
                     <Route path="contract" element={<ContractList />} />
                     <Route path="beneficio" element={<BenefitForm onSuccess={handleBeneficioSuccess} />} />
-                    <Route path="social-security" element={<SocialSecurityList />} />
+                    <Route path="social-security" element={<SocialSecurityForm onSuccess={handleSocialSuccess} />} />
                     <Route path="cesantias" element={<CesantiaForm onSuccess={handleCesantiaSuccess} />} />
                     <Route path="liquidacion-definitiva" element={<FinalSettlementList />} />
-                    <Route path="vacaciones" element={<VacationForm />} />
+                    <Route path="vacaciones" element={<VacationForm onSuccess={handleVactionSuccess} />} />
                     <Route path="incapacidades" element={<IncapacityForm onSuccess={handleIncapacitySuccess} />} />
                     <Route path="deducciones" element={<DeductionList />} />
                     <Route path="eps" element={<EpsList />} />

@@ -7,19 +7,31 @@
 .dashboard-overview h1 {
     font-size: 2rem;
     font-family: var(--font-title);
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     color: #8f1212;
+}
+
+.dashboard-description {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    line-height: 1.5;
 }
 
 /* KPI cards */
 .stats-cards {
-    display: inline-flex;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
     gap: 2rem;
     margin-bottom: 3rem;
 }
 
 .stat-card {
+    flex: 1 1 calc(33% - 2rem);
+    min-width: 300px;
+    max-width: 500px;
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
     padding: 2rem;
@@ -51,35 +63,7 @@
 }
 
 .stat-card p {
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: bold;
     margin: 0;
-}
-
-/* Notifications */
-.notifications {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    padding: 1.5rem;
-    border-radius: 12px;
-}
-
-.notifications h2 {
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #8f1212;
-    margin-bottom: 1rem;
-}
-
-.notifications ul {
-    list-style: none;
-    padding: 0;
-}
-
-.notifications li {
-    padding: 0.6rem 0;
-    border-bottom: 1px solid var(--color-border);
-    font-family: var(--font-body);
 }
