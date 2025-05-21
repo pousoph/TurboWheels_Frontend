@@ -5,10 +5,12 @@ import {ContractForm} from "./forms/ContractForm.jsx";
 import {DeleteContractForm} from "./forms/DeleteContractForm.jsx";
 import {Plus, RefreshCcw, Trash2, FileSignature, FileDown} from "lucide-react";
 import {descargarPDFContratos} from "../services/pdfService.js";
+import {UpdateContractForm} from "./forms/UpdateContractForm.jsx";
 
 export const ContractList = () => {
     const [contracts, setContracts] = useState([]);
     const [showCreateForm, setShowCreateForm] = useState(false);
+    const [mostrarFormularioActualizar, setMostrarFormularioActualizar] = useState(false);
     const [showDeleteForm, setShowDeleteForm] = useState(false);
     const [selectedId, setSelectedId] = useState(null);
 
@@ -40,7 +42,7 @@ export const ContractList = () => {
                     <button className="add-btn" onClick={() => setShowCreateForm(true)}>
                         <Plus size={18} /> Agregar
                     </button>
-                    <button className="update-btn" onClick={() => setShowDeleteForm(true)}>
+                    <button className="update-btn" onClick={() => setMostrarFormularioActualizar(true)}>
                         <RefreshCcw size={18} /> Actualizar
                     </button>
                     <button className="delete-btn" onClick={() => setShowDeleteForm(true)}>
@@ -91,6 +93,14 @@ export const ContractList = () => {
                     onSuccess={loadContracts}
                 />
             )}
+
+            {mostrarFormularioActualizar && (
+                <UpdateContractForm
+                    onClose={() => setMostrarFormularioActualizar(false)}
+                    onSuccess={loadContracts}
+                />
+            )}
+
 
             {showDeleteForm && (
                 <DeleteContractForm

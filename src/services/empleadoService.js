@@ -16,11 +16,6 @@ export const crearEmpleado = async (nuevoEmpleado) => {
     await axios.post(API_URL, nuevoEmpleado);
 };
 
-export const updateEmpleado = async (id, empleado) => {
-    const response = await axios.put(`${API_URL}/${id}`, empleado);
-    return response.data;
-};
-
 
 export const deleteEmpleado = async (id) => {
     const response = await axios.delete(`${API_URL}/${id}`);

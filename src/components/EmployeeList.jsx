@@ -3,14 +3,12 @@ import { useState, useEffect } from 'react';
 import { getEmpleados } from '../services/empleadoService.js';
 import { EmployeeForm } from './forms/EmployeeForm.jsx';
 import { DeleteEmployeeForm } from './forms/DeleteEmployeeForm.jsx';
-import { UpdateEmployeeForm } from './forms/UpdateEmployeeForm.jsx';
 import { descargarPDFEmpleados } from '../services/pdfService';
-import { Plus, RefreshCcw, Trash2, Users, FileDown } from "lucide-react";
+import { Plus, Trash2, Users, FileDown } from "lucide-react";
 
 export const EmployeeList = () => {
     const [empleados, setEmpleados] = useState([]);
     const [mostrarFormulario, setMostrarFormulario] = useState(false);
-    const [mostrarFormularioActualizar, setMostrarFormularioActualizar] = useState(false);
     const [mostrarFormularioEliminar, setMostrarFormularioEliminar] = useState(false);
 
     const cargarEmpleados = async () => {
@@ -33,9 +31,6 @@ export const EmployeeList = () => {
                 <div className="crud-buttons">
                     <button className="add-btn" onClick={() => setMostrarFormulario(true)}>
                         <Plus size={18} /> Agregar
-                    </button>
-                    <button className="update-btn" onClick={() => setMostrarFormularioActualizar(true)}>
-                        <RefreshCcw size={18} /> Actualizar
                     </button>
                     <button className="delete-btn" onClick={() => setMostrarFormularioEliminar(true)}>
                         <Trash2 size={18} /> Eliminar
@@ -79,12 +74,6 @@ export const EmployeeList = () => {
             {mostrarFormulario && (
                 <EmployeeForm
                     onClose={() => setMostrarFormulario(false)}
-                    onSuccess={cargarEmpleados}
-                />
-            )}
-            {mostrarFormularioActualizar && (
-                <UpdateEmployeeForm
-                    onClose={() => setMostrarFormularioActualizar(false)}
                     onSuccess={cargarEmpleados}
                 />
             )}

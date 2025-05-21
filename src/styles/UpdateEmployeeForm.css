@@ -1,4 +1,4 @@
-/* src/styles/UpdateEmployeeForm.css */
+/* src/styles/UpdateContractForm.css */
 .update-form-overlay {
     position: fixed;
     top: 0;
@@ -69,4 +69,29 @@
     border: none;
     color: #fff;
     cursor: pointer;
+}
+.id-section {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.fetch-btn {
+    background-color: #e50914;
+    border: none;
+    color: white;
+    padding: 6px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0); }
+    100% { transform: rotate(360deg); }
 }

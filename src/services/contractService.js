@@ -33,12 +33,32 @@ export const deleteContrato = async (id) => {
     }
 };
 
-export const updateContrato = async (id, contratoActualizado) => {
+export const getContratoById = async (id) => {
     try {
-        const response = await axios.put(`${API_URL}/${id}`, contratoActualizado);
+        const response = await axios.get(`${API_URL}/${id}`); // ← ID del contrato
         return response.data;
+    } catch (error) {
+        console.error('Error al obtener contrato:', error);
+        throw error;
+    }
+};
+
+// Actualización por employeeId usando query params
+export const updateContrato = async (employeeId, contratoActualizado) => {
+    const { tipo, fechaInicio, fechaFin, salario } = contratoActualizado;
+    try {
+        await axios.put(`${API_URL}/actualizar`, null, {
+            params: {
+                empleadoId: employeeId,
+                tipoContrato: tipo,
+                fechaInicio,
+                fechaFin,
+                salario
+            }
+        });
     } catch (error) {
         console.error('Error al actualizar contrato:', error);
         throw error;
     }
 };
+
