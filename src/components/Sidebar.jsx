@@ -1,5 +1,5 @@
 import '../styles/Sidebar.css';
-import { Link } from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 import logo from '../assets/logo-intento.png';
 import {
     Users,
@@ -14,7 +14,7 @@ import {
     HandCoins,
     Handshake,
     SquareBottomDashedScissors,
-    HeartHandshake
+    HeartHandshake, BellIcon
 } from 'lucide-react';
 
 export const Sidebar = () => {
@@ -24,6 +24,7 @@ export const Sidebar = () => {
                 <img src={logo} alt="TurboWheels Logo" />
             </div>
             <nav className="sidebar-menu">
+                <Link to="/dashboard/notificaciones"><BellIcon size={20} /> Notificaciones </Link>
                 <Link to="/dashboard/employees"><Users size={20} /> Lista de Empleados</Link>
                 <Link to="/dashboard/contract"><FileUser size={20} /> Contratos</Link>
                 <Link to="/dashboard/beneficio"><HandCoins size={20}/> Beneficios</Link>
@@ -36,6 +37,7 @@ export const Sidebar = () => {
                 <Link to="/dashboard/eps"><HeartHandshake size={20} /> EPS</Link>
                 <Link to="/dashboard/nomina"><BadgeDollarSign size={20} /> Nómina</Link>
                 <Link to="/" className="logout-link">Cerrar sesión</Link>
+
             </nav>
         </aside>
     );

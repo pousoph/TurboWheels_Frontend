@@ -1,0 +1,98 @@
+/* Notification.css */
+
+.notifications-container {
+    padding: 2rem;
+    background-color: #1e1e1e;
+    color: #f1f1f1;
+    font-family: 'Manrope', sans-serif;
+}
+
+.notifications-container h1 {
+    font-size: 2rem;
+    color: #e50914;
+    margin-bottom: 1.5rem;
+}
+
+.auditoria-block {
+    margin-bottom: 2rem;
+    border: 1px solid #333;
+    border-radius: 10px;
+    background-color: #2a2a2a;
+    padding: 1rem;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.auditoria-block:hover {
+    box-shadow: 0 0 10px rgba(229, 9, 20, 0.4);
+}
+
+.auditoria-block h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #e50914;
+}
+
+.auditoria-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.auditoria-table th,
+.auditoria-table td {
+    border: 1px solid #444;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.auditoria-table th {
+    background-color: #333;
+    color: #fff;
+    font-weight: 600;
+}
+
+.auditoria-table tbody tr:nth-child(even) {
+    background-color: #252525;
+}
+
+.auditoria-table tbody tr:hover {
+    background-color: #303030;
+}
+
+/* Animación de parpadeo */
+@keyframes pulse-flash {
+    0%, 100% {
+        box-shadow: 0 0 15px rgba(229, 9, 20, 0.6), 0 0 30px rgba(229, 9, 20, 0.2);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(229, 9, 20, 0.9), 0 0 50px rgba(229, 9, 20, 0.4);
+        transform: scale(1.02);
+    }
+}
+
+/* Notificación emergente moderna */
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(145deg, #961018, #ab1111);
+    color: white;
+    padding: 1.2rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(229, 9, 20, 0.3);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.3s ease;
+    z-index: 9999;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+}
+
+/* Se muestra con animación */
+.toast.show {
+    opacity: 1;
+    pointer-events: auto;
+    animation: pulse-flash 1.5s ease-in-out infinite;
+}
+

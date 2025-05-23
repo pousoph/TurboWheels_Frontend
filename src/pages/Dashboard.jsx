@@ -15,6 +15,7 @@ import { BenefitForm } from "../components/forms/BenefitForm.jsx";
 import {FinalSettlementForm} from "../components/forms/FinalSettlementForm.jsx";
 import {FinalSettlementList} from "../components/FinalSettlementList.jsx";
 import {SocialSecurityForm} from "../components/forms/SocialSecurityForm.jsx";
+import {NotificationList} from "../components/NotificationList.jsx";
 
 export const Dashboard = () => {
 
@@ -45,6 +46,7 @@ export const Dashboard = () => {
                 <Routes>
                     <Route path="/" element={<DashboardOverview />} />
                     <Route path="employees" element={<EmployeeList />} />
+                    <Route path="notificaciones" element={<NotificationList />} />
                     <Route path="contract" element={<ContractList />} />
                     <Route path="beneficio" element={<BenefitForm onSuccess={handleBeneficioSuccess} />} />
                     <Route path="social-security" element={<SocialSecurityForm onSuccess={handleSocialSuccess} />} />
