@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { createDeduction } from '../../services/deductionService.js';
 import '../../styles/CreateForm.css';
+import {X} from "lucide-react";
 
 export const DeductionForm = ({ onClose, onSuccess }) => {
     const [form, setForm] = useState({ payrollId: '', tipo: '', valor: '' });
@@ -21,10 +22,12 @@ export const DeductionForm = ({ onClose, onSuccess }) => {
     };
 
     return (
-        <div className="modal-backdrop">
-            <div className="modal">
-                <h2>Agregar Deduccion</h2>
-                <form onSubmit={handleSubmit} className="formulario-empleado">
+        <div className="modal-overlay">
+            <form onSubmit={handleSubmit} className="formulario-empleado">
+                <div className="form-header">
+                    <h3>Asignar Deducción</h3>
+                    <X onClick={onClose} className="close-icon" />
+                </div>
                     <div className="campo">
                         <label>ID Nomina</label>
                         <input name="payrollId" placeholder="Id" value={form.payrollId} onChange={handleChange} required />
@@ -42,7 +45,6 @@ export const DeductionForm = ({ onClose, onSuccess }) => {
                         <button type="button" className="btn-cancelar" onClick={onClose}>Cancelar</button>
                     </div>
                 </form>
-            </div>
         </div>
     );
 };

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { createEPS } from '../../services/epsService.js';
 import '../../styles/EmployeeForm.css';
+import {X} from "lucide-react";
 
 export const EPSForm = ({ onClose, onSuccess }) => {
     const [form, setForm] = useState({ nombre: '' });
@@ -21,10 +22,12 @@ export const EPSForm = ({ onClose, onSuccess }) => {
     };
 
     return (
-        <div className="modal-backdrop">
-            <div className="modal">
-                <h2>Agregar EPS</h2>
-                <form onSubmit={handleSubmit} className="formulario-empleado">
+        <div className="modal-overlay">
+            <form onSubmit={handleSubmit} className="formulario-empleado">
+                <div className="form-header">
+                    <h3>Registrar EPS</h3>
+                    <X onClick={onClose} className="close-icon" />
+                </div>
                     <div className="campo">
                         <label>Nombre</label>
                         <input name="nombre" placeholder="Nombre" value={form.nombre} onChange={handleChange} required />
@@ -34,8 +37,6 @@ export const EPSForm = ({ onClose, onSuccess }) => {
                         <button type="button" className="btn-cancelar" onClick={onClose}>Cancelar</button>
                     </div>
                 </form>
-
-            </div>
         </div>
     );
 };
